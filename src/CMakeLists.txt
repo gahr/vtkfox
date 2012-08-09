@@ -1,0 +1,26 @@
+SET(VTKFOX_SOURCES FXVTKCanvas.cpp vtkFXRenderWindowInteractor.cpp)
+
+IF (WIN32)
+	SET(VTKFOX_SOURCES ${VTKFOX_SOURCES} windows.cpp)
+ELSE (WIN32)
+	SET(VTKFOX_SOURCES ${VTKFOX_SOURCES} unix.cpp)
+ENDIF (WIN32)
+
+ADD_LIBRARY (vtkfox SHARED ${VTKFOX_SOURCES})
+SET_TARGET_PROPERTIES (
+   vtkfox
+   PROPERTIES
+   OUTPUT_NAME vtkfox
+   SOVERSION 1
+)
+
+INSTALL (
+   TARGETS vtkfox
+   LIBRARY DESTINATION lib
+)
+
+SET (HEADERS vtkfox.h vtkFXRenderWindowInteractor.h FXVTKCanvas.h)
+INSTALL (
+   FILES ${HEADERS}
+   DESTINATION include/vtkfox
+)
