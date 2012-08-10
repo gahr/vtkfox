@@ -6,3 +6,5 @@ application. Allows VTK to render inside a FOX application via the FXGLCanvas
 control. Keyboard and mouse events are translated to allow for "native" VTK
 functionality.
 
+The code was originally developed at http://sourceforge.net/projects/vtkfox/
+by Doug Henry, who has been kind enough to hand it over to me.
